@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09484C9B2673BE3000085D06 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09484C9A2673BE3000085D06 /* DetailViewController.swift */; };
+		09484C9D2673E3AC00085D06 /* MaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09484C9C2673E3AC00085D06 /* MaskViewController.swift */; };
 		09A05DBB267272F8005C429A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A05DBA267272F8005C429A /* AppDelegate.swift */; };
 		09A05DBD267272F8005C429A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A05DBC267272F8005C429A /* SceneDelegate.swift */; };
 		09A05DBF267272F8005C429A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A05DBE267272F8005C429A /* ViewController.swift */; };
 		09A05DC2267272F8005C429A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A05DC0267272F8005C429A /* Main.storyboard */; };
 		09A05DC4267272F9005C429A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09A05DC3267272F9005C429A /* Assets.xcassets */; };
 		09A05DC7267272F9005C429A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A05DC5267272F9005C429A /* LaunchScreen.storyboard */; };
+		09A05DCF267273FF005C429A /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A05DCE267273FF005C429A /* MyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09484C9A2673BE3000085D06 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		09484C9C2673E3AC00085D06 /* MaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskViewController.swift; sourceTree = "<group>"; };
 		09A05DB7267272F8005C429A /* dustLjm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dustLjm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A05DBA267272F8005C429A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09A05DBC267272F8005C429A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +29,7 @@
 		09A05DC3267272F9005C429A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09A05DC6267272F9005C429A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09A05DC8267272F9005C429A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09A05DCE267273FF005C429A /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,9 @@
 				09A05DBA267272F8005C429A /* AppDelegate.swift */,
 				09A05DBC267272F8005C429A /* SceneDelegate.swift */,
 				09A05DBE267272F8005C429A /* ViewController.swift */,
+				09484C9C2673E3AC00085D06 /* MaskViewController.swift */,
+				09484C9A2673BE3000085D06 /* DetailViewController.swift */,
+				09A05DCE267273FF005C429A /* MyTableViewCell.swift */,
 				09A05DC0267272F8005C429A /* Main.storyboard */,
 				09A05DC3267272F9005C429A /* Assets.xcassets */,
 				09A05DC5267272F9005C429A /* LaunchScreen.storyboard */,
@@ -138,7 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				09A05DBF267272F8005C429A /* ViewController.swift in Sources */,
+				09A05DCF267273FF005C429A /* MyTableViewCell.swift in Sources */,
+				09484C9B2673BE3000085D06 /* DetailViewController.swift in Sources */,
 				09A05DBB267272F8005C429A /* AppDelegate.swift in Sources */,
+				09484C9D2673E3AC00085D06 /* MaskViewController.swift in Sources */,
 				09A05DBD267272F8005C429A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,7 +299,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W9P3UZU7FD;
 				INFOPLIST_FILE = dustLjm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +319,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W9P3UZU7FD;
 				INFOPLIST_FILE = dustLjm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
