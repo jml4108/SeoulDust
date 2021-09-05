@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09393F2326E4D8B8006A8375 /* DustData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09393F2226E4D8B8006A8375 /* DustData.swift */; };
 		09484C9B2673BE3000085D06 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09484C9A2673BE3000085D06 /* DetailViewController.swift */; };
 		09484C9D2673E3AC00085D06 /* MaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09484C9C2673E3AC00085D06 /* MaskViewController.swift */; };
 		09A05DBB267272F8005C429A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A05DBA267272F8005C429A /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09393F2226E4D8B8006A8375 /* DustData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustData.swift; sourceTree = "<group>"; };
 		09484C9A2673BE3000085D06 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		09484C9C2673E3AC00085D06 /* MaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskViewController.swift; sourceTree = "<group>"; };
 		09A05DB7267272F8005C429A /* dustLjm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dustLjm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +74,7 @@
 				09A05DC3267272F9005C429A /* Assets.xcassets */,
 				09A05DC5267272F9005C429A /* LaunchScreen.storyboard */,
 				09A05DC8267272F9005C429A /* Info.plist */,
+				09393F2226E4D8B8006A8375 /* DustData.swift */,
 			);
 			path = dustLjm;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				09484C9B2673BE3000085D06 /* DetailViewController.swift in Sources */,
 				09A05DBB267272F8005C429A /* AppDelegate.swift in Sources */,
 				09484C9D2673E3AC00085D06 /* MaskViewController.swift in Sources */,
+				09393F2326E4D8B8006A8375 /* DustData.swift in Sources */,
 				09A05DBD267272F8005C429A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

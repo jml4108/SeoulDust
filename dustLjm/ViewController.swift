@@ -7,33 +7,20 @@
 
 import UIKit
 
-struct DustData : Codable {
-    let response : Response
-}
-struct Response : Codable {
-    let body : Body
-}
-struct Body : Codable {
-    let items : [Items]
-}
-struct Items : Codable {
-    let khaiGrade : String
-    let stationName : String
-    let pm10Value: String
-    let pm10Grade : String
-}
-
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet weak var tabel: UITableView!
-    var dustData: DustData?
-    let dustURL = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=332rIZusSZjb7HpmfHwrUm2miwcsR6uCmQCgCFEkC3ZDK5oglPDb%2BVv7inASnNxE7c4v3qZN3WRwXagfbGJkLA%3D%3D&returnType=json&numOfRows=100&pageNo=1&sidoName=%EC%84%9C%EC%9A%B8&ver=1.4"
+class ViewController: UIViewController {
     
+    //MARK:- Property
+    @IBOutlet weak var table: UITableView!
+    var dustData : DustData?
+    //OpenAPI URL
+    let dustURL = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=332rIZusSZjb7HpmfHwrUm2miwcsR6uCmQCgCFEkC3ZDK5oglPDb%2BVv7inASnNxE7c4v3qZN3WRwXagfbGJkLA%3D%3D&returnType=json&numOfRows=100&pageNo=1&sidoName=서울&ver=1.0"
+    
+    //MARK:- Method
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        tabel.delegate = self
-        tabel.dataSource = self
+        table.delegate = self
+        table.dataSource = self
         getData()
     }
     
@@ -45,23 +32,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     print(error!)
                     return
                 }
-                if let JSONdata = data {
-                    let decoder = JSONDecoder()
-                    do {
-                        let decodedData = try decoder.decode(DustData.self, from: JSONdata)
-                        self.dustData = decodedData
-                        DispatchQueue.main.async {
-                            self.tabel.reloadData()
-                        }
+                guard let JSONdata = data else {return}
+                let decoder = JSONDecoder()
+                do {
+                    let decodedData = try decoder.decode(DustData.self, from: JSONdata)
+                    self.dustData = decodedData
+                    DispatchQueue.main.async {
+                        self.table.reloadData()
                     }
-                    catch {
-                        print(error)
-                    }
+                }
+                catch {
+                    print(error)
                 }
             }
             task.resume()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let dest = segue.destination as? DetailViewController else { return }
+        let myIndexPath = table.indexPathForSelectedRow!
+        let row = myIndexPath.row
+        dest.staionName = (dustData?.response.body.items[row].stationName)!
+    }
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let count = dustData?.response.body.items.count else { return 0 }
@@ -117,14 +113,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return "서울시 지역별 미세먼지"
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let dest = segue.destination as? DetailViewController else { return }
-        let myIndexPath = tabel.indexPathForSelectedRow!
-        let row = myIndexPath.row
-        dest.staionName = (dustData?.response.body.items[row].stationName)!
-        
-    }
-
-
 }
-
