@@ -17,8 +17,8 @@ struct Body : Codable {
     let items : [Items]
 }
 struct Items : Codable {
-    let khaiGrade   : String
-    let stationName : String
-    let pm10Value   : String
-    let pm10Grade   : String
+    let pm10Value   : String?
+    let stationName : String?
+    let pm10Grade   : String?
+    let khaiGrade   : String?
 }

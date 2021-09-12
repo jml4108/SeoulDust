@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var table: UITableView!
     var dustData : DustData?
     //OpenAPI URL
-    let dustURL = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=332rIZusSZjb7HpmfHwrUm2miwcsR6uCmQCgCFEkC3ZDK5oglPDb%2BVv7inASnNxE7c4v3qZN3WRwXagfbGJkLA%3D%3D&returnType=json&numOfRows=100&pageNo=1&sidoName=서울&ver=1.0"
+    let dustURL = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=N6Zr7npJRiZbuek%2FYe7J%2BiOkwlqIgzllNtMGqALWCMuo%2Fvc4CX6cwxabU35B5tUVbKeCCOOaATpzike88zPk%2FA%3D%3D&returnType=json&numOfRows=100&pageNo=1&sidoName=%EC%84%9C%EC%9A%B8&ver=4.0"
     
     //MARK:- Method
     override func viewDidLoad() {
@@ -28,21 +28,19 @@ class ViewController: UIViewController {
         if let url = URL(string: dustURL) {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                guard let JSONdata = data else {return}
-                let decoder = JSONDecoder()
-                do {
-                    let decodedData = try decoder.decode(DustData.self, from: JSONdata)
-                    self.dustData = decodedData
-                    DispatchQueue.main.async {
-                        self.table.reloadData()
+                guard error == nil else { return }
+                if let JSONdata = data {
+                    let decoder = JSONDecoder()
+                    do {
+                        let decodedData = try decoder.decode(DustData.self, from: JSONdata)
+                        self.dustData = decodedData
+                        DispatchQueue.main.async {
+                            self.table.reloadData()
+                        }
                     }
-                }
-                catch {
-                    print(error)
+                    catch {
+                        print(error)
+                    }
                 }
             }
             task.resume()
@@ -90,20 +88,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if let khaiGrade = dustData?.response.body.items[indexPath.row].khaiGrade {
             let numF = NumberFormatter()
             numF.numberStyle = .decimal
-            let khaiGradeNumber = Int(khaiGrade)!
-            if khaiGradeNumber == 1 {
-                cell.khaiGrade.backgroundColor = UIColor.systemBlue
+            if let khaiGradeNumber = Int(khaiGrade) {
+                if khaiGradeNumber == 1 {
+                    cell.khaiGrade.backgroundColor = UIColor.systemBlue
+                }
+                else if khaiGradeNumber == 2 {
+                    cell.khaiGrade.backgroundColor = UIColor.systemGreen
+                }
+                else if khaiGradeNumber == 3 {
+                    cell.khaiGrade.backgroundColor = UIColor.systemYellow
+                }
+                else if khaiGradeNumber == 4 {
+                    cell.khaiGrade.backgroundColor = UIColor.systemRed
+                }
+                cell.khaiGrade.text = "통합대기등급: \(khaiGradeNumber)등급"
             }
-            else if khaiGradeNumber == 2 {
-                cell.khaiGrade.backgroundColor = UIColor.systemGreen
-            }
-            else if khaiGradeNumber == 3 {
-                cell.khaiGrade.backgroundColor = UIColor.systemYellow
-            }
-            else if khaiGradeNumber == 4 {
-                cell.khaiGrade.backgroundColor = UIColor.systemRed
-            }
-            cell.khaiGrade.text = "통합대기등급: \(khaiGradeNumber)등급"
         }
         return cell
     }
