@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  dustLjm
+//  SeoulDust
 //
-//  Created by 이정민 on 2021/06/11.
+//  Created by jmlee on 2021/06/11.
 //
 
 import UIKit
@@ -71,38 +71,37 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let numF = NumberFormatter()
             numF.numberStyle = .decimal
             let pm10GradeNumber = Int(pm10Grade)!
-            if pm10GradeNumber == 1 {
-                cell.pm10Value.backgroundColor = UIColor.systemBlue
-            }
-            else if pm10GradeNumber == 2 {
-                cell.pm10Value.backgroundColor = UIColor.systemGreen
-            }
-            else if pm10GradeNumber == 3 {
-                cell.pm10Value.backgroundColor = UIColor.systemYellow
-            }
-            else if pm10GradeNumber == 4 {
-                cell.pm10Value.backgroundColor = UIColor.systemRed
+            switch pm10GradeNumber {
+                case 1:
+                    cell.pm10Value.backgroundColor = UIColor.systemBlue
+                case 2:
+                    cell.pm10Value.backgroundColor = UIColor.systemGreen
+                case 3:
+                    cell.pm10Value.backgroundColor = UIColor.systemYellow
+                case 4:
+                    cell.pm10Value.backgroundColor = UIColor.systemRed
+                default:
+                    break
             }
         }
-        //통합대기등급 레이블 컬러
+        //통합대기등급 레이블
         if let khaiGrade = dustData?.response.body.items[indexPath.row].khaiGrade {
             let numF = NumberFormatter()
             numF.numberStyle = .decimal
-            if let khaiGradeNumber = Int(khaiGrade) {
-                if khaiGradeNumber == 1 {
+            let khaiGradeNumber = Int(khaiGrade)!
+            switch khaiGradeNumber {
+                case 1:
                     cell.khaiGrade.backgroundColor = UIColor.systemBlue
-                }
-                else if khaiGradeNumber == 2 {
+                case 2:
                     cell.khaiGrade.backgroundColor = UIColor.systemGreen
-                }
-                else if khaiGradeNumber == 3 {
+                case 3:
                     cell.khaiGrade.backgroundColor = UIColor.systemYellow
-                }
-                else if khaiGradeNumber == 4 {
+                case 4:
                     cell.khaiGrade.backgroundColor = UIColor.systemRed
-                }
-                cell.khaiGrade.text = "통합대기등급: \(khaiGradeNumber)등급"
+                default:
+                    cell.khaiGrade.text = "통합대기등급: \(khaiGradeNumber)등급"
             }
+            cell.khaiGrade.text = "통합대기등급: \(khaiGradeNumber)등급"
         }
         return cell
     }

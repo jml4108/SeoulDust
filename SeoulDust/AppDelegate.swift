@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  dustLjm
+//  SeoulDust
 //
-//  Created by 이정민 on 2021/06/11.
+//  Created by jmlee on 2021/06/11.
 //
 
 import UIKit

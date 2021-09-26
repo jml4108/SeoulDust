@@ -1,8 +1,8 @@
 //
 //  DustData.swift
-//  dustLjm
+//  SeoulDust
 //
-//  Created by 이정민 on 2021/09/05.
+//  Created by jmlee on 2021/09/05.
 //
 
 import Foundation
