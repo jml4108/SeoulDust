@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091DDF752700BF3500F51646 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091DDF742700BF3500F51646 /* SearchViewController.swift */; };
 		09393F2326E4D8B8006A8375 /* DustData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09393F2226E4D8B8006A8375 /* DustData.swift */; };
 		09484C9B2673BE3000085D06 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09484C9A2673BE3000085D06 /* DetailViewController.swift */; };
 		09484C9D2673E3AC00085D06 /* MaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09484C9C2673E3AC00085D06 /* MaskViewController.swift */; };
@@ -17,9 +18,11 @@
 		09A05DC4267272F9005C429A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09A05DC3267272F9005C429A /* Assets.xcassets */; };
 		09A05DC7267272F9005C429A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A05DC5267272F9005C429A /* LaunchScreen.storyboard */; };
 		09A05DCF267273FF005C429A /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A05DCE267273FF005C429A /* MyTableViewCell.swift */; };
+		361816F306EB310C89A67DE1 /* Pods_SeoulDust.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D89246EAD231BA0A774EEAE /* Pods_SeoulDust.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		091DDF742700BF3500F51646 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		09393F2226E4D8B8006A8375 /* DustData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustData.swift; sourceTree = "<group>"; };
 		09484C9A2673BE3000085D06 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		09484C9C2673E3AC00085D06 /* MaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +35,9 @@
 		09A05DC6267272F9005C429A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09A05DC8267272F9005C429A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09A05DCE267273FF005C429A /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		0D89246EAD231BA0A774EEAE /* Pods_SeoulDust.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeoulDust.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		402E6A77780384FCAECA2985 /* Pods-SeoulDust.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeoulDust.debug.xcconfig"; path = "Target Support Files/Pods-SeoulDust/Pods-SeoulDust.debug.xcconfig"; sourceTree = "<group>"; };
+		7624806293954BA729258E04 /* Pods-SeoulDust.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeoulDust.release.xcconfig"; path = "Target Support Files/Pods-SeoulDust/Pods-SeoulDust.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +45,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				361816F306EB310C89A67DE1 /* Pods_SeoulDust.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		091DDF732700BE8E00F51646 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09393F2226E4D8B8006A8375 /* DustData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		09A05DAE267272F8005C429A = {
 			isa = PBXGroup;
 			children = (
 				09A05DB9267272F8005C429A /* SeoulDust */,
 				09A05DB8267272F8005C429A /* Products */,
+				691F27C41909022FE723C365 /* Pods */,
+				BF9D497D3745B510DA83B288 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,19 +81,38 @@
 		09A05DB9267272F8005C429A /* SeoulDust */ = {
 			isa = PBXGroup;
 			children = (
+				091DDF732700BE8E00F51646 /* Model */,
 				09A05DBA267272F8005C429A /* AppDelegate.swift */,
 				09A05DBC267272F8005C429A /* SceneDelegate.swift */,
 				09A05DBE267272F8005C429A /* ViewController.swift */,
+				091DDF742700BF3500F51646 /* SearchViewController.swift */,
 				09484C9C2673E3AC00085D06 /* MaskViewController.swift */,
 				09484C9A2673BE3000085D06 /* DetailViewController.swift */,
 				09A05DCE267273FF005C429A /* MyTableViewCell.swift */,
-				09393F2226E4D8B8006A8375 /* DustData.swift */,
 				09A05DC0267272F8005C429A /* Main.storyboard */,
 				09A05DC3267272F9005C429A /* Assets.xcassets */,
 				09A05DC5267272F9005C429A /* LaunchScreen.storyboard */,
 				09A05DC8267272F9005C429A /* Info.plist */,
 			);
 			path = SeoulDust;
+			sourceTree = "<group>";
+		};
+		691F27C41909022FE723C365 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				402E6A77780384FCAECA2985 /* Pods-SeoulDust.debug.xcconfig */,
+				7624806293954BA729258E04 /* Pods-SeoulDust.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BF9D497D3745B510DA83B288 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0D89246EAD231BA0A774EEAE /* Pods_SeoulDust.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +122,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 09A05DCB267272F9005C429A /* Build configuration list for PBXNativeTarget "SeoulDust" */;
 			buildPhases = (
+				86D7F834B3048C0EB9DC2EB4 /* [CP] Check Pods Manifest.lock */,
 				09A05DB3267272F8005C429A /* Sources */,
 				09A05DB4267272F8005C429A /* Frameworks */,
 				09A05DB5267272F8005C429A /* Resources */,
+				4E5B454F6997E73B63C34013 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -144,6 +182,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4E5B454F6997E73B63C34013 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SeoulDust/Pods-SeoulDust-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SeoulDust/Pods-SeoulDust-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SeoulDust/Pods-SeoulDust-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86D7F834B3048C0EB9DC2EB4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SeoulDust-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		09A05DB3267272F8005C429A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -151,6 +231,7 @@
 			files = (
 				09A05DBF267272F8005C429A /* ViewController.swift in Sources */,
 				09A05DCF267273FF005C429A /* MyTableViewCell.swift in Sources */,
+				091DDF752700BF3500F51646 /* SearchViewController.swift in Sources */,
 				09484C9B2673BE3000085D06 /* DetailViewController.swift in Sources */,
 				09A05DBB267272F8005C429A /* AppDelegate.swift in Sources */,
 				09484C9D2673E3AC00085D06 /* MaskViewController.swift in Sources */,
@@ -299,6 +380,7 @@
 		};
 		09A05DCC267272F9005C429A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 402E6A77780384FCAECA2985 /* Pods-SeoulDust.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -319,6 +401,7 @@
 		};
 		09A05DCD267272F9005C429A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7624806293954BA729258E04 /* Pods-SeoulDust.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

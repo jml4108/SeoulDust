@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
     
@@ -13,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var table: UITableView!
     var dustData : DustData?
     //OpenAPI URL
-    let dustURL = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=N6Zr7npJRiZbuek%2FYe7J%2BiOkwlqIgzllNtMGqALWCMuo%2Fvc4CX6cwxabU35B5tUVbKeCCOOaATpzike88zPk%2FA%3D%3D&returnType=json&numOfRows=100&pageNo=1&sidoName=%EC%84%9C%EC%9A%B8&ver=4.0"
+    let urlString = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=N6Zr7npJRiZbuek%2FYe7J%2BiOkwlqIgzllNtMGqALWCMuo%2Fvc4CX6cwxabU35B5tUVbKeCCOOaATpzike88zPk%2FA%3D%3D&returnType=json&numOfRows=100&pageNo=1&sidoName=%EC%84%9C%EC%9A%B8&ver=4.0"
     
     //MARK:- Method
     override func viewDidLoad() {
@@ -25,25 +26,23 @@ class ViewController: UIViewController {
     }
     
     func getData() {
-        if let url = URL(string: dustURL) {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { (data, response, error) in
-                guard error == nil else { return }
-                if let JSONdata = data {
-                    let decoder = JSONDecoder()
-                    do {
-                        let decodedData = try decoder.decode(DustData.self, from: JSONdata)
-                        self.dustData = decodedData
-                        DispatchQueue.main.async {
-                            self.table.reloadData()
-                        }
-                    }
-                    catch {
-                        print(error)
+        AF.request(urlString).responseJSON { response in
+            switch response.result {
+            case .success(let res):
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: res, options: .prettyPrinted)
+                    let json = try JSONDecoder().decode(DustData.self, from: jsonData)
+                    self.dustData = json
+                    DispatchQueue.main.async {
+                        self.table.reloadData()
                     }
                 }
+                catch(let err) {
+                    print(err)
+                }
+            case .failure(let err):
+                print(err)
             }
-            task.resume()
         }
     }
     
@@ -110,5 +109,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "서울시 지역별 미세먼지"
     }
+    
+    
     
 }
