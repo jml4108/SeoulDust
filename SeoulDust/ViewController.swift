@@ -63,45 +63,30 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! MyTableViewCell
-        cell.stationName.text   = dustData?.response.body.items[indexPath.row].stationName
-        cell.pm10Value.text     = "미세먼지: " + (dustData?.response.body.items[indexPath.row].pm10Value)! + "㎍/m³"
-        //미세먼지 지수 레이블 컬러
+        
+        //지역 레이블
+        cell.stationName.text = dustData?.response.body.items[indexPath.row].stationName
+        
+        //미세먼지 지수 레이블
         if let pm10Grade = dustData?.response.body.items[indexPath.row].pm10Grade {
-            let numF = NumberFormatter()
-            numF.numberStyle = .decimal
-            let pm10GradeNumber = Int(pm10Grade)!
-            switch pm10GradeNumber {
-                case 1:
-                    cell.pm10Value.backgroundColor = UIColor.systemBlue
-                case 2:
-                    cell.pm10Value.backgroundColor = UIColor.systemGreen
-                case 3:
-                    cell.pm10Value.backgroundColor = UIColor.systemYellow
-                case 4:
-                    cell.pm10Value.backgroundColor = UIColor.systemRed
-                default:
-                    break
-            }
+            cell.pm10Value.backgroundColor = changeColor(pm10Grade)
+            cell.pm10Value.text = "미세먼지: " + (pm10Grade) + "㎍/m³"
         }
+        else {
+            cell.pm10Value.backgroundColor = UIColor.lightGray
+            cell.pm10Value.text = "측정 값 없음"
+        }
+        
         //통합대기등급 레이블
         if let khaiGrade = dustData?.response.body.items[indexPath.row].khaiGrade {
-            let numF = NumberFormatter()
-            numF.numberStyle = .decimal
-            let khaiGradeNumber = Int(khaiGrade)!
-            switch khaiGradeNumber {
-                case 1:
-                    cell.khaiGrade.backgroundColor = UIColor.systemBlue
-                case 2:
-                    cell.khaiGrade.backgroundColor = UIColor.systemGreen
-                case 3:
-                    cell.khaiGrade.backgroundColor = UIColor.systemYellow
-                case 4:
-                    cell.khaiGrade.backgroundColor = UIColor.systemRed
-                default:
-                    cell.khaiGrade.text = "통합대기등급: \(khaiGradeNumber)등급"
-            }
-            cell.khaiGrade.text = "통합대기등급: \(khaiGradeNumber)등급"
+            cell.khaiGrade.backgroundColor = changeColor(khaiGrade)
+            cell.khaiGrade.text = "통합대기등급: \(khaiGrade)등급"
         }
+        else {
+            cell.khaiGrade.backgroundColor = UIColor.lightGray
+            cell.khaiGrade.text = "측정 값 없음"
+        }
+        
         return cell
     }
     
@@ -110,6 +95,24 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return "서울시 지역별 미세먼지"
     }
     
-    
+    //레이블 컬러 변경
+    func changeColor(_ key: String) -> UIColor {
+        let numF = NumberFormatter()
+        numF.numberStyle = .decimal
+        let keyInt = Int(key)!
+        switch keyInt {
+        case 1:
+            return UIColor.systemBlue
+        case 2:
+            return UIColor.systemGreen
+        case 3:
+            return UIColor.systemYellow
+        case 4:
+            return UIColor.systemRed
+        default:
+            break
+        }
+        return UIColor.white
+    }
     
 }
