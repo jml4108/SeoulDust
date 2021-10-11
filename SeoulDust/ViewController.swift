@@ -64,28 +64,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! MyTableViewCell
         
-        //지역 레이블
+        //레이블
         cell.stationName.text = dustData?.response.body.items[indexPath.row].stationName
-        
-        //미세먼지 지수 레이블
-        if let pm10Grade = dustData?.response.body.items[indexPath.row].pm10Grade {
-            cell.pm10Value.backgroundColor = changeColor(pm10Grade)
-            cell.pm10Value.text = "미세먼지: " + (pm10Grade) + "㎍/m³"
-        }
-        else {
-            cell.pm10Value.backgroundColor = UIColor.lightGray
-            cell.pm10Value.text = "측정 값 없음"
-        }
-        
-        //통합대기등급 레이블
-        if let khaiGrade = dustData?.response.body.items[indexPath.row].khaiGrade {
-            cell.khaiGrade.backgroundColor = changeColor(khaiGrade)
-            cell.khaiGrade.text = "통합대기등급: \(khaiGrade)등급"
-        }
-        else {
-            cell.khaiGrade.backgroundColor = UIColor.lightGray
-            cell.khaiGrade.text = "측정 값 없음"
-        }
+        cell.pm10Value.text = "미세먼지: \(dustData?.response.body.items[indexPath.row].pm10Value ?? "측정 X")㎍/m³"
+        cell.khaiGrade.text = "통합대기등급: \(dustData?.response.body.items[indexPath.row].khaiGrade ?? "측정 X")등급"        
+        //레이블 색
+        cell.pm10Value.backgroundColor = changeColor(dustData?.response.body.items[indexPath.row].pm10Grade ?? "0")
+        cell.khaiGrade.backgroundColor = changeColor(dustData?.response.body.items[indexPath.row].khaiGrade ?? "0")
         
         return cell
     }
@@ -112,7 +97,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             break
         }
-        return UIColor.white
+        return UIColor.lightGray
     }
     
 }
